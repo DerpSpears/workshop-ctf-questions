@@ -1,0 +1,2 @@
+docker load -i challenge-me-not.tar
+docker run -d -p 5000:5000 command-me-not

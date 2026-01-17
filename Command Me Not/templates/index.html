@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WhoIs</title>
+</head>
+<body>
+
+    <h1>WhoIS a website</h1>
+    
+    <input type="text" id="userInput" placeholder="Type something here...">
+
+    <button onclick="sendData()">Send to Backend</button>
+
+    <p><strong>Response:</strong> <span id="output" style="color: green;">...</span></p>
+
+    <script>
+        async function sendData() {
+            const inputVal = document.getElementById('userInput').value;
+
+            try {
+                const response = await fetch('/process-input', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ input_value: inputVal }),
+                });
+                
+                const data = await response.json();
+
+                document.getElementById('output').innerText = data.result;
+            
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+
+</body>
+</html>

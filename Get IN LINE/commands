@@ -1,0 +1,2 @@
+docker build -t get-in-line .
+docker run -d -p 1337:80 --name get_in_line get-in-line
