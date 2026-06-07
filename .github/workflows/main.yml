@@ -1,5 +1,13 @@
+name: IITM Assignment Workflow
+
+# 1. The Trigger: This runs the workflow every time you push code to the repository.
+on: [push] 
+
 jobs:
   test:
+    # 2. The Runner: This tells GitHub to use a standard Linux server.
+    runs-on: ubuntu-latest 
+    
     steps:
       - name: 24f3003579@ds.study.iitm.ac.in
         run: echo "Hello, world!"
